@@ -28,6 +28,11 @@ from window import Window
 if __name__ == "__main__":
 
     app = QApplication([])
+    app.setOrganizationName("naracanto")
+    app.setOrganizationDomain("https://naracanto.com")
+    app.setApplicationName("dwStudio")
+    app.setApplicationDisplayName("dwStudio")
+    app.setApplicationVersion("0.1.0")
 
     window = Window()
     window.show()
