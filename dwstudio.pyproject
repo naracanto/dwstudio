@@ -1,6 +1,7 @@
 {
     "files": [
         "main.py",
+        "icons.qrc",
         "window.py"
     ]
 }
