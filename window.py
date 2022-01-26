@@ -18,6 +18,7 @@
 # along with dwStudio.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+from PySide6.QtCore import QByteArray, QSettings
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow
 
@@ -31,7 +32,19 @@ class Window(QMainWindow):
 
         self.setWindowIcon(QIcon(":/icons/apps/16/dwstudio.svg"))
 
-        # Center window
-        availableGeometry = self.screen().availableGeometry()
-        self.resize(availableGeometry.width() * 2/3, availableGeometry.height() * 2/3)
-        self.move((availableGeometry.width() - self.width()) / 2, (availableGeometry.height() - self.height()) / 2)
+        self._loadSettings()
+
+
+    def _loadSettings(self):
+
+        settings = QSettings()
+
+        # Application properties: Geometry
+        geometry = settings.value("Application/Geometry", QByteArray())
+        if not geometry.isEmpty():
+            self.restoreGeometry(geometry)
+        else:
+            # Center window
+            availableGeometry = self.screen().availableGeometry()
+            self.resize(availableGeometry.width() * 2/3, availableGeometry.height() * 2/3)
+            self.move((availableGeometry.width() - self.width()) / 2, (availableGeometry.height() - self.height()) / 2)
