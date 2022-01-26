@@ -20,6 +20,7 @@
 
 import sys
 
+from PySide6.QtCore import QCommandLineParser
 from PySide6.QtWidgets import QApplication
 
 from window import Window
@@ -27,12 +28,19 @@ from window import Window
 
 if __name__ == "__main__":
 
-    app = QApplication([])
+    app = QApplication(sys.argv)
     app.setOrganizationName("naracanto")
     app.setOrganizationDomain("https://naracanto.com")
     app.setApplicationName("dwStudio")
     app.setApplicationDisplayName("dwStudio")
     app.setApplicationVersion("0.1.0")
+
+    # Command line
+    parser = QCommandLineParser()
+    parser.setApplicationDescription("{0} - A data visualization editor for Datawrapper".format(app.applicationName()))
+    parser.addHelpOption()
+    parser.addVersionOption()
+    parser.process(app)
 
     window = Window()
     window.show()
