@@ -20,7 +20,7 @@
 
 from PySide6.QtCore import QByteArray, QSettings
 from PySide6.QtGui import QAction, QIcon, QKeySequence
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow
 
 import icons_rc
 
@@ -80,6 +80,13 @@ class Window(QMainWindow):
         #
         # Actions: Application
 
+        self._actionAbout = QAction(self.tr("About {0}").format(QApplication.applicationName()), self)
+        self._actionAbout.setObjectName("actionAbout")
+        self._actionAbout.setIcon(QIcon(":/icons/apps/16/dwstudio.svg"))
+        self._actionAbout.setIconText(self.tr("About"))
+        self._actionAbout.setToolTip(self.tr("Brief description of the application"))
+        self._actionAbout.triggered.connect(self._onActionAboutTriggered)
+
         self._actionQuit = QAction(self.tr("Quit"), self)
         self._actionQuit.setObjectName("actionQuit")
         self._actionQuit.setIcon(QIcon.fromTheme("application-exit", QIcon(":/icons/actions/16/application-exit.svg")))
@@ -93,6 +100,8 @@ class Window(QMainWindow):
         # Menu: Application
         menuApplication = self.menuBar().addMenu(self.tr("Application"))
         menuApplication.setObjectName("menuApplication")
+        menuApplication.addAction(self._actionAbout)
+        menuApplication.addSeparator()
         menuApplication.addAction(self._actionQuit)
 
 
@@ -106,4 +115,11 @@ class Window(QMainWindow):
         # Toolbar: Application
         self._toolbarApplication = self.addToolBar(self.tr("Application"))
         self._toolbarApplication.setObjectName("toolbarApplication")
+        self._toolbarApplication.addAction(self._actionAbout)
+        self._toolbarApplication.addSeparator()
         self._toolbarApplication.addAction(self._actionQuit)
+
+
+    def _onActionAboutTriggered(self):
+
+        pass
