@@ -5,4 +5,7 @@
     <qresource prefix="/icons/apps/22">
         <file alias="dwstudio.svg">icons/apps/22/dwstudio.svg</file>
     </qresource>
+    <qresource prefix="/icons/actions/16">
+        <file>icons/actions/16/application-exit.svg</file>
+    </qresource>
 </RCC>
