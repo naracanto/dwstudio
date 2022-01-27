@@ -33,6 +33,7 @@ class Window(QMainWindow):
         self.setWindowIcon(QIcon(":/icons/apps/16/dwstudio.svg"))
 
         self._createMenuBar()
+        self._createToolBars()
 
         self._loadSettings()
 
@@ -77,3 +78,10 @@ class Window(QMainWindow):
         # Menu: Application
         menuApplication = self.menuBar().addMenu(self.tr("Application"))
         menuApplication.setObjectName("menuApplication")
+
+
+    def _createToolBars(self):
+
+        # Toolbar: Application
+        self._toolbarApplication = self.addToolBar(self.tr("Application"))
+        self._toolbarApplication.setObjectName("toolbarApplication")
