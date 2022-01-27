@@ -32,6 +32,8 @@ class Window(QMainWindow):
 
         self.setWindowIcon(QIcon(":/icons/apps/16/dwstudio.svg"))
 
+        self._createMenuBar()
+
         self._loadSettings()
 
 
@@ -68,3 +70,10 @@ class Window(QMainWindow):
         # Application properties: Geometry
         geometry = self.saveGeometry()
         settings.setValue("Application/Geometry", geometry)
+
+
+    def _createMenuBar(self):
+
+        # Menu: Application
+        menuApplication = self.menuBar().addMenu(self.tr("Application"))
+        menuApplication.setObjectName("menuApplication")
