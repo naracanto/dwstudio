@@ -109,7 +109,8 @@ class Window(QMainWindow):
 
     def _createStatusBar(self):
 
-        self._statusbar = self.statusBar()
+        statusbar = self.statusBar()
+        statusbar.showMessage(self.tr("Ready"), 3000)
 
 
     def _createToolBars(self):
