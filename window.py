@@ -84,6 +84,10 @@ class Window(QMainWindow):
         geometry = self.saveGeometry()
         settings.setValue("Application/Geometry", geometry)
 
+        # Application properties: State
+        state = self.saveState()
+        settings.setValue("Application/State", state)
+
 
     def _createActions(self):
 
