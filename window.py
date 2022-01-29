@@ -74,6 +74,7 @@ class Window(QMainWindow):
         else:
             # Show toolbars
             self._toolbarApplication.setVisible(True)
+            self._toolbarView.setVisible(False)
 
 
     def _saveSettings(self):
@@ -137,6 +138,10 @@ class Window(QMainWindow):
         self._toolbarApplication.addAction(self._actionAbout)
         self._toolbarApplication.addSeparator()
         self._toolbarApplication.addAction(self._actionQuit)
+
+        # Toolbar: View
+        self._toolbarView = self.addToolBar(self.tr("View"))
+        self._toolbarView.setObjectName("toolbarView")
 
 
     def _onActionAboutTriggered(self):
