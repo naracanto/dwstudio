@@ -124,6 +124,12 @@ class Window(QMainWindow):
         self._actionToolbarView.setToolTip(self.tr("Display the View toolbar"))
         self._actionToolbarView.toggled.connect(lambda checked: self._toolbarView.setVisible(checked))
 
+        self._actionStatusbar = QAction(self.tr("Show Status Bar"), self)
+        self._actionStatusbar.setObjectName("actionStatusbar")
+        self._actionStatusbar.setCheckable(True)
+        self._actionStatusbar.setToolTip(self.tr("Display the Status bar"))
+        self._actionStatusbar.toggled.connect(lambda checked: self._statusbar.setVisible(checked))
+
 
     def _createMenuBar(self):
 
@@ -145,12 +151,13 @@ class Window(QMainWindow):
         menuView = self.menuBar().addMenu(self.tr("View"))
         menuView.setObjectName("menuView")
         menuView.addMenu(menuToolbars)
+        menuView.addAction(self._actionStatusbar)
 
 
     def _createStatusBar(self):
 
-        statusbar = self.statusBar()
-        statusbar.showMessage(self.tr("Ready"), 3000)
+        self._statusbar = self.statusBar()
+        self._statusbar.showMessage(self.tr("Ready"), 3000)
 
 
     def _createToolBars(self):
