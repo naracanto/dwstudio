@@ -20,7 +20,7 @@
 
 from PySide6.QtCore import QByteArray, QSettings
 from PySide6.QtGui import QAction, QIcon, QKeySequence
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QMenu
 
 from about_dialog import AboutDialog
 
@@ -119,9 +119,15 @@ class Window(QMainWindow):
         menuApplication.addSeparator()
         menuApplication.addAction(self._actionQuit)
 
+        #
         # Menu: View
+
+        menuToolbars = QMenu(self.tr("Toolbars"), self)
+        menuToolbars.setObjectName("menuToolbars")
+
         menuView = self.menuBar().addMenu(self.tr("View"))
         menuView.setObjectName("menuView")
+        menuView.addMenu(menuToolbars)
 
 
     def _createStatusBar(self):
