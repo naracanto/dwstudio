@@ -1,7 +1,12 @@
 
 # dwStudio
 
-An open source data visualization editor for Datawrapper based on QtPy.
+A front-end tool for the Datawrapper API based on Qt for Python.
+
+
+## Description
+
+dwStudio is an open source front-end tool for the Datawrapper API written in Python using the Python bindings for the Qt framework.
 
 
 ## Copyright
