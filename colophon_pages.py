@@ -18,6 +18,10 @@
 # along with dwStudio.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+import sys
+import PySide6.QtCore
+
+from PySide6.QtCore import QSysInfo
 from PySide6.QtWidgets import QApplication, QFrame, QTextBrowser, QVBoxLayout, QWidget
 
 
@@ -117,3 +121,41 @@ class ColophonPageCredits(QWidget):
     def title(self):
 
         return self.tr("Credits")
+
+
+#
+#
+# Colophon page: Environment
+#
+
+class ColophonPageEnvironment(QWidget):
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        text = "<html><body><dl>"
+        text += self.tr("<dt><strong>Application version</strong></dt>")
+        text += self.tr("<dd>{0}</dd>").format(QApplication.applicationVersion())
+        text += self.tr("<dt><strong>Qt for Python version</strong></dt>")
+        text += self.tr("<dd>{0} runs on Qt {1} (Built against {2})</dd>").format(PySide6.__version__, PySide6.QtCore.qVersion(), PySide6.QtCore.__version__)
+        text += self.tr("<dt><strong>Python version</strong></dt>")
+        text += self.tr("<dd>{0}</dd>").format(sys.version)
+        text += self.tr("<dt><strong>Operation System</strong></dt>")
+        text += self.tr("<dd>{0} (Kernel {1} on {2})</dd>").format(QSysInfo.prettyProductName(), QSysInfo.kernelVersion(), QSysInfo.currentCpuArchitecture())
+        text += "</dl></body></html>"
+
+        textBox = QTextBrowser()
+        textBox.setFrameStyle(QFrame.NoFrame)
+        textBox.setStyleSheet("background-color:transparent;")
+        textBox.setOpenExternalLinks(True)
+        textBox.setHtml(text)
+
+        # Main layout
+        mainLayout = QVBoxLayout()
+        mainLayout.addWidget(textBox)
+        self.setLayout(mainLayout)
+
+
+    def title(self):
+
+        return self.tr("Environment")
