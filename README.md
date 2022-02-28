@@ -11,7 +11,7 @@ dwStudio is an open source front-end tool for the Datawrapper API written in Pyt
 
 ## Copyright
 
-Copyright &copy; 2022 [naracanto](https://naracanto.com).
+Copyright &copy; 2022 [naracanto](https://naracanto.github.io). All rights reserved.
 
 
 ## License

@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 #
-# Copyright 2022 naracanto, <https://naracanto.com>.
+# Copyright 2022 naracanto, <https://naracanto.github.io>.
 #
 # This file is part of dwStudio, <https://github.com/naracanto/dwstudio>.
 #

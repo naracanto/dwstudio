@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 #
-# Copyright 2022 naracanto, <https://naracanto.com>.
+# Copyright 2022 naracanto, <https://naracanto.github.io>.
 #
 # This file is part of dwStudio, <https://github.com/naracanto/dwstudio>.
 #
@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     app = QApplication(sys.argv)
     app.setOrganizationName("naracanto")
-    app.setOrganizationDomain("https://naracanto.com")
+    app.setOrganizationDomain("https://naracanto.github.io")
     app.setApplicationName("dwStudio")
     app.setApplicationDisplayName("dwStudio")
     app.setApplicationVersion("0.1.0")
